@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1c1c1c;
+    min-height: 100vh;
+    color: #e0e0e0;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 320px;
+    background: #1c1c1c;
+    padding: 40px 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-right: 1px solid #2a2a2a;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.control-group {
+    margin-bottom: 30px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #bdbdbd;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+}
+
+.control-group input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed #7b64ff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #141414;
+    color: #e0e0e0;
+    transition: all 0.2s ease;
+}
+
+.control-group input[type="file"]:hover {
+    border-color: #9380ff;
+    background: #1a1a1a;
+}
+
+.control-group input[type="file"].drag-over {
+    border-color: #9380ff;
+    background: #1a1a1a;
+    transform: scale(1.02);
+}
+
+.control-group input[type="file"]::file-selector-button {
+    background: #7b64ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 12px;
+    transition: background 0.2s ease;
+}
+
+.control-group input[type="file"]::file-selector-button:hover {
+    background: #8b74ff;
+}
+
+.control-group input[type="color"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #141414;
+}
+
+.control-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    background: #141414;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.control-group input[type="text"]:focus {
+    outline: none;
+    border-color: #7b64ff;
+    background: #1a1a1a;
+}
+
+.control-group input[type="text"]::placeholder {
+    color: #5a5a5a;
+}
+
+.control-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    background: #141414;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23e0e0e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+}
+
+.control-group select:hover {
+    border-color: #333333;
+    background-color: #1a1a1a;
+}
+
+.control-group select:focus {
+    outline: none;
+    border-color: #7b64ff;
+    background-color: #1a1a1a;
+}
+
+.control-group select option {
+    background: #1c1c1c;
+    color: #e0e0e0;
+    padding: 10px;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #7b64ff 0%, #7b64ff 50%, #2a2a2a 50%, #2a2a2a 100%);
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.control-group input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: transparent;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: grab;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: -7px;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.control-group input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #2a2a2a;
+}
+
+.control-group input[type="range"]::-moz-range-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: #7b64ff;
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: grab;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-group input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.control-group input[type="range"]::-moz-range-thumb:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.download-btn,
+.reset-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.download-btn {
+    background: #7b64ff;
+    color: white;
+}
+
+.download-btn:hover:not(:disabled) {
+    background: #8b74ff;
+    transform: translateY(-1px);
+}
+
+.download-btn:disabled {
+    background: #2a2a2a;
+    color: #5a5a5a;
+    cursor: not-allowed;
+}
+
+.reset-btn {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.reset-btn:hover {
+    background: #333333;
+}
+
+.keyboard-shortcuts {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.shortcuts-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: -0.01em;
+}
+
+.keyboard-shortcuts p {
+    font-size: 12px;
+    color: #bdbdbd;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.keyboard-shortcuts kbd {
+    background: #2a2a2a;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+    color: #e0e0e0;
+    border: 1px solid #333333;
+}
+
+.preview-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 50px;
+    background: #1c1c1c;
+}
+
+.polaroid-container {
+    display: inline-block;
+    background: transparent;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    max-width: 90%;
+}
+
+.polaroid-container canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.upload-placeholder {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #5a5a5a;
+    background: #141414;
+    border: 2px dashed #2a2a2a;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.upload-placeholder.drag-over {
+    border-color: #7b64ff;
+    background: #1a1a1a;
+    transform: scale(1.02);
+}
+
+.upload-placeholder svg {
+    margin-bottom: 20px;
+    color: #7b64ff;
+    opacity: 0.8;
+}
+
+.upload-placeholder p {
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .preview-area {
+        padding: 30px 20px;
+    }
+
+    .upload-placeholder {
+        width: 300px;
+        height: 300px;
+    }
+}
